@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Hanken Grotesk", sans-serif;
+
+  --color-brand: #1D9E75;
+  --color-brand-light: #E1F5EE;
+  --color-brand-dark: #0F6E56;
+  --color-forest: #04342C;
+  --color-forest-muted: #9FE1CB;
+  --color-forest-accent: #5DCAA5;
+}
