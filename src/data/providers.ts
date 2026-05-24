@@ -6,7 +6,7 @@ export const providers: Provider[] = [
     name: "EcoFiber Perú",
     city: "Lima, Perú",
     avatar: "EF",
-    image: "/images/categoria-tela-pet.jpg",
+    image: "/images/categoria-tela-pet.webp",
     description:
       "Especialistas en fibras PET recicladas post-consumo. Capacidad de producción de 5 toneladas mensuales con certificación GRS.",
     badges: ["PET Reciclado", "Certificado GRS"],
@@ -18,7 +18,7 @@ export const providers: Provider[] = [
     name: "Textiles Andinos",
     city: "Arequipa, Perú",
     avatar: "TA",
-    image: "/images/categoria-alpaca.jpg",
+    image: "/images/categoria-alpaca.webp",
     description:
       "Hilados de alpaca reciclada de alta calidad. Proveedores directos de comunidades altoandinas con comercio justo.",
     badges: ["Alpaca Reciclada", "Comercio Justo"],
@@ -30,7 +30,7 @@ export const providers: Provider[] = [
     name: "Denim Circular",
     city: "Medellín, Colombia",
     avatar: "DC",
-    image: "/images/categoria-denim.jpg",
+    image: "/images/categoria-denim.webp",
     description:
       "Excedentes de denim pre-consumo de fábricas premium. Lotes disponibles de 12oz y 14oz en múltiples acabados.",
     badges: ["Denim Pre-consumo", "Excedente"],

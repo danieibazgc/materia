@@ -4,13 +4,13 @@ export const categories: Category[] = [
   {
     id: "tela-pet",
     name: "Tela PET",
-    image: "/images/categoria-tela-pet.jpg",
+    image: "/images/categoria-tela-pet.webp",
     providerCount: 24,
   },
   {
     id: "denim-residual",
     name: "Denim residual",
-    image: "/images/categoria-denim.jpg",
+    image: "/images/categoria-denim.webp",
     providerCount: 18,
   },
   {
@@ -22,7 +22,7 @@ export const categories: Category[] = [
   {
     id: "alpaca-reciclada",
     name: "Alpaca reciclada",
-    image: "/images/categoria-alpaca.jpg",
+    image: "/images/categoria-alpaca.webp",
     providerCount: 9,
   },
   {
@@ -34,7 +34,7 @@ export const categories: Category[] = [
   {
     id: "cuero-residual",
     name: "Cuero residual",
-    image: "/images/categoria-cuero.jpg",
+    image: "/images/categoria-cuero.webp",
     providerCount: 12,
   },
 ];

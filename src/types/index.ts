@@ -15,6 +15,13 @@ export type Provider = {
   badges: string[];
   rating: number;
   moq: string;
+  // Campos nuevos:
+  email?: string;           // Solo mostrar a usuarios autenticados (privacidad)
+  responseTime?: string;    // Ej: "< 24 horas"
+  certifications?: string[]; // Ej: ["GRS", "OEKO-TEX"]
+  materials?: string[];     // Lista detallada de materiales ofrecidos
+  minOrder?: string;        // MOQ en texto descriptivo
+  priceRange?: string;      // Ej: "S/. 15 – 35 / metro"
 };
 
 export type MaterialRequest = {
@@ -59,3 +66,16 @@ export type Step = {
   description: string;
   image: string;
 };
+
+export type SearchFilters = {
+  query: string;
+  category: string;        // '' = todas
+  urgency: string;         // '' = todas
+  location: string;        // '' = todas
+};
+
+export type FilterOption = {
+  value: string;
+  label: string;
+};
+

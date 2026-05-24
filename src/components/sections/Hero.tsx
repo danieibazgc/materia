@@ -1,7 +1,16 @@
 import { Search } from "lucide-react";
 import Button from "@/components/ui/Button";
 
-const Hero = () => {
+interface HeroProps {
+  query: string;
+  onSearch: (value: string) => void;
+}
+
+const Hero = ({ query, onSearch }: HeroProps) => {
+  const handleSearchSubmit = () => {
+    document.getElementById('proveedores')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section
       className="py-24 px-4 md:px-10 max-w-[1440px] mx-auto flex flex-col md:flex-row items-center gap-12"
@@ -27,9 +36,14 @@ const Hero = () => {
               className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand transition-colors"
               placeholder="Buscar 'denim 100% algodón'..."
               type="text"
+              value={query}
+              onChange={(e) => onSearch(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSearchSubmit()}
+              maxLength={100}
+              autoComplete="off"
             />
           </div>
-          <Button variant="primary" size="lg">
+          <Button variant="primary" size="lg" onClick={handleSearchSubmit}>
             Buscar materiales
           </Button>
         </div>
@@ -38,7 +52,7 @@ const Hero = () => {
         <img
           alt="Materiales textiles apilados mostrando variedad de telas sostenibles"
           className="w-full h-full object-cover"
-          src="/images/hero-materiales.jpg"
+          src="/images/hero-materiales.webp"
         />
       </div>
     </section>

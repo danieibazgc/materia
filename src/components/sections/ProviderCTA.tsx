@@ -1,6 +1,15 @@
+import { useState } from "react";
 import Button from "@/components/ui/Button";
+import Modal from "@/components/ui/Modal";
+import SupplierOnboardingForm from "@/features/supplier/components/SupplierOnboardingForm";
 
-const ProviderCTA = () => {
+interface ProviderCTAProps {
+  onShowToast: (message: string) => void;
+}
+
+const ProviderCTA = ({ onShowToast }: ProviderCTAProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section
       id="proveedor-cta"
@@ -20,7 +29,7 @@ const ProviderCTA = () => {
             marcas que buscan materiales sostenibles. Publica tu inventario en
             minutos.
           </p>
-          <Button variant="primary" size="lg">
+          <Button variant="primary" size="lg" onClick={() => setIsModalOpen(true)}>
             Registrarme como proveedor
           </Button>
           <p className="text-sm text-gray-400">
@@ -32,25 +41,37 @@ const ProviderCTA = () => {
             <img
               alt="Telas sostenibles apiladas en almacén"
               className="w-full h-full object-cover"
-              src="/images/categoria-tela-pet.jpg"
+              src="/images/categoria-tela-pet.webp"
             />
           </div>
           <div className="rounded-xl overflow-hidden">
             <img
               alt="Rollos de denim reciclado"
               className="w-full h-full object-cover"
-              src="/images/categoria-denim.jpg"
+              src="/images/categoria-denim.webp"
             />
           </div>
           <div className="rounded-xl overflow-hidden">
             <img
               alt="Fibras de alpaca reciclada"
               className="w-full h-full object-cover"
-              src="/images/categoria-alpaca.jpg"
+              src="/images/categoria-alpaca.webp"
             />
           </div>
         </div>
       </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Registro de proveedor"
+        maxWidth="md"
+      >
+        <SupplierOnboardingForm
+          onSuccess={() => setIsModalOpen(false)}
+          onShowToast={onShowToast}
+        />
+      </Modal>
     </section>
   );
 };

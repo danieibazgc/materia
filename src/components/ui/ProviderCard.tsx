@@ -4,11 +4,19 @@ import Badge from "./Badge";
 
 interface ProviderCardProps {
   provider: Provider;
+  onSelect: (provider: Provider) => void;
 }
 
-const ProviderCard = ({ provider }: ProviderCardProps) => {
+const ProviderCard = ({ provider, onSelect }: ProviderCardProps) => {
   return (
-    <article className="border border-gray-200 rounded-xl overflow-hidden bg-white hover:border-brand transition-colors group">
+    <article
+      onClick={() => onSelect(provider)}
+      onKeyDown={(e) => e.key === 'Enter' && onSelect(provider)}
+      role="button"
+      tabIndex={0}
+      aria-label={`Ver perfil de ${provider.name}`}
+      className="border border-gray-200 rounded-xl overflow-hidden bg-white hover:border-brand transition-colors group cursor-pointer"
+    >
       <div className="h-32 w-full overflow-hidden">
         <img
           alt={`Material de ${provider.name}`}

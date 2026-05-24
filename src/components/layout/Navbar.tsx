@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Button from "@/components/ui/Button";
+import AuthModal from "@/features/auth/components/AuthModal";
 
 const navLinks = [
   { id: "catalogo", label: "Catálogo", href: "#categorias", active: true },
@@ -9,8 +10,16 @@ const navLinks = [
   { id: "blog", label: "Blog", href: "#", active: false },
 ];
 
-const Navbar = () => {
+interface NavbarProps {
+  onShowToast: (message: string) => void;
+}
+
+const Navbar = ({ onShowToast }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [authModal, setAuthModal] = useState<{ open: boolean; tab: 'login' | 'register' }>({
+    open: false,
+    tab: 'login',
+  });
 
   return (
     <nav className="bg-white sticky top-0 h-14 w-full flex items-center border-b border-gray-200 z-50">
@@ -40,13 +49,18 @@ const Navbar = () => {
         </ul>
 
         <div className="hidden md:flex items-center gap-4">
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={() => setAuthModal({ open: true, tab: 'login' })}
             className="text-sm text-gray-500 hover:text-brand transition-colors font-medium"
           >
             Iniciar sesión
-          </a>
-          <Button variant="primary" size="md">
+          </button>
+          <Button
+            variant="primary"
+            size="md"
+            onClick={() => setAuthModal({ open: true, tab: 'register' })}
+          >
             Registrarme
           </Button>
         </div>
@@ -79,15 +93,38 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex flex-col gap-2 p-4 border-t border-gray-100">
-            <Button variant="outline" size="md" className="w-full">
+            <Button
+              variant="outline"
+              size="md"
+              className="w-full"
+              onClick={() => {
+                setMobileOpen(false);
+                setAuthModal({ open: true, tab: 'login' });
+              }}
+            >
               Iniciar sesión
             </Button>
-            <Button variant="primary" size="md" className="w-full">
+            <Button
+              variant="primary"
+              size="md"
+              className="w-full"
+              onClick={() => {
+                setMobileOpen(false);
+                setAuthModal({ open: true, tab: 'register' });
+              }}
+            >
               Registrarme
             </Button>
           </div>
         </div>
       )}
+
+      <AuthModal
+        isOpen={authModal.open}
+        onClose={() => setAuthModal((prev) => ({ ...prev, open: false }))}
+        initialTab={authModal.tab}
+        onSuccess={onShowToast}
+      />
     </nav>
   );
 };

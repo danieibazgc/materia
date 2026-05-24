@@ -1,7 +1,16 @@
+import { useState } from "react";
 import { requests } from "@/data/requests";
 import RequestRow from "@/components/ui/RequestRow";
+import Modal from "@/components/ui/Modal";
+import RequestForm from "@/features/requests/components/RequestForm";
 
-const RequestBoard = () => {
+interface RequestBoardProps {
+  onShowToast: (message: string) => void;
+}
+
+const RequestBoard = ({ onShowToast }: RequestBoardProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section
       id="tablero"
@@ -20,12 +29,13 @@ const RequestBoard = () => {
             Requerimientos abiertos de marcas buscando materiales sostenibles.
           </p>
         </div>
-        <a
-          href="#"
+        <button
+          type="button"
+          onClick={() => setIsModalOpen(true)}
           className="text-sm font-medium text-brand hover:underline hidden md:inline"
         >
           Publicar solicitud →
-        </a>
+        </button>
       </div>
       <div className="border border-gray-100 rounded-xl overflow-hidden bg-white">
         <div className="divide-y divide-gray-100">
@@ -34,6 +44,18 @@ const RequestBoard = () => {
           ))}
         </div>
       </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Publicar solicitud de material"
+        maxWidth="md"
+      >
+        <RequestForm
+          onSuccess={() => setIsModalOpen(false)}
+          onShowToast={onShowToast}
+        />
+      </Modal>
     </section>
   );
 };

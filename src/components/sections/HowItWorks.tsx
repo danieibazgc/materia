@@ -7,7 +7,7 @@ const steps: Step[] = [
     title: "Busca o solicita",
     description:
       "Explora el catálogo o publica un requerimiento específico en nuestro tablero de búsqueda activa.",
-    image: "/images/paso-busca.jpg",
+    image: "/images/paso-busca.webp",
   },
   {
     id: "step-contacta",
@@ -15,7 +15,7 @@ const steps: Step[] = [
     title: "Contacta al proveedor",
     description:
       "Comunícate directamente, negocia precios y solicita muestras de manera estructurada.",
-    image: "/images/paso-contacta.jpg",
+    image: "/images/paso-contacta.webp",
   },
   {
     id: "step-cierra",
@@ -23,7 +23,7 @@ const steps: Step[] = [
     title: "Cierra la transacción",
     description:
       "Gestiona el pago y la logística obteniendo un certificado de trazabilidad del material.",
-    image: "/images/paso-cierra.jpg",
+    image: "/images/paso-cierra.webp",
   },
 ];
 

@@ -19,7 +19,7 @@ export const plans: Plan[] = [
   {
     id: "plan-premium",
     name: "Premium",
-    price: "$49",
+    price: "S/. 79",
     period: "/mes",
     description:
       "Para marcas con necesidades de sourcing frecuentes y trazabilidad.",
@@ -37,7 +37,7 @@ export const plans: Plan[] = [
   {
     id: "plan-enterprise",
     name: "Enterprise",
-    price: "$199",
+    price: "S/. 299",
     period: "/mes",
     description:
       "Para empresas con cadenas de suministro complejas y equipos grandes.",
